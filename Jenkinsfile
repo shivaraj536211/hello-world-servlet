@@ -41,7 +41,7 @@ stages {
       archiveArtifacts 'target/*.war'
       }
  }
- /*stage('Sonarqube') {
+ stage('Sonarqube') {
     environment {
         scannerHome = tool 'sonarqube'
     }
@@ -54,18 +54,18 @@ stages {
         }
     }
 }
-     stage('Artifact upload') {
+    /* stage('Artifact upload') {
       steps {
      nexusPublisher nexusInstanceId: '1234', nexusRepositoryId: 'releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'target/helloworld.war']], mavenCoordinate: [artifactId: 'hello-world-servlet-example', groupId: 'com.geekcap.vmturbo', packaging: 'war', version: '$BUILD_NUMBER']]]
       }
  }*/
 }
-post {
+/*post {
         success {
             mail to:"shivaraj536211@gmail.com", subject:"SUCCESS: ${currentBuild.fullDisplayName}", body: "Build success"
         }
         failure {
             mail to:"shivaraj536211@gmail.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Build failed"
         }
-    }       
+    } */      
 }
